@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/welcomeoriginal', function () {
+    return view('welcomeoriginal');
+});
+
+Route::get('/user/{id}', [UserController::class, 'show']);
+
+
+ 
+Route::resource('posts', PostController::class);
+
+Route::get('/greeting', function () {
+    return view('greeting', ['name' => 'James']);
 });
