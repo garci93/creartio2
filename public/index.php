@@ -1,5 +1,5 @@
 <?php
-echo "Runing proyect is ready";
+
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
