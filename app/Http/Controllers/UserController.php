@@ -10,11 +10,15 @@ class UserController extends Controller
     /**
      * Show the profile for a given user.
      *
-     * @param  int  $id
+     * @param  int  $nombreUsuario
      * @return \Illuminate\View\View
      */
-    public function show($id)
+    public function show($nombreUsuario)
     {
-        return view('greeting', ['name' => $id]);
+        $nombreUsuario = id;
+        // pides el modelo $model findBy([username => $nombreUsuario])
+        //procesas el modelo
+        // se lo pasas a la plantilla
+        return view('greeting', ['name' => $nombreUsuario]);
     }
 }
