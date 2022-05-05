@@ -29,8 +29,6 @@
 
             <!-- Page Content -->
             <main>
-                asdfasdfasdfas asdfasdfasdfash1
-                <h1>asdfasdfasdf ñlkajsdf</h1>
                 {{ $slot }}
             </main>
         </div>
