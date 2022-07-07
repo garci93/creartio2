@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class CreateMensajesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('mensajes', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo')->unique();
-            $table->string('texto');
-            $table->timestamp('fecha_publicacion');
-            $table->timestamp("Fecha_ultima_edicion")->nullable();
+            $table->foreignId('emisor_id')->constrained('users')->onDelete('null');
+            $table->foreignId('receptor_id')->constrained('users')->onDelete('null');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +28,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('mensajes');
     }
 }
